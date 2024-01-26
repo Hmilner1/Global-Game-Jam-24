@@ -11,11 +11,17 @@ public class WorldController : MonoBehaviour
     public float maxXRotationAngle = 0.2f;
     public float minXRotationAngle = -0.2f;
 
+    public bool isEnable = false;
+    
     void FixedUpdate()
     {
+        if (!isEnable)
+        {
+            return;
+        }
+
         float currentZRotation = transform.rotation.z;
         float currentXRotation = transform.rotation.x;
-        Debug.Log(currentZRotation);
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -35,7 +41,7 @@ public class WorldController : MonoBehaviour
         }
     }
 
-    void LeanForward()
+    public void LeanForward()
     {
         float currentZRotation = transform.rotation.z;
         if (currentZRotation < maxZRotationAngle)
@@ -46,7 +52,7 @@ public class WorldController : MonoBehaviour
         }
     }
 
-    void LeanBack()
+    public void LeanBack()
     {
         float currentZRotation = transform.rotation.z;
         if (currentZRotation > minZRotationAngle)
@@ -57,7 +63,7 @@ public class WorldController : MonoBehaviour
         }
     }
 
-    void LeanLeft()
+    public void LeanLeft()
     {
         float currentXRotation = transform.rotation.x;
         if (currentXRotation > minXRotationAngle)
@@ -68,7 +74,7 @@ public class WorldController : MonoBehaviour
         }
     }
 
-    void LeanRight()
+    public void LeanRight()
     {
         float currentXRotation = transform.rotation.x;
         if (currentXRotation < maxXRotationAngle)
