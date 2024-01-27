@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeveMoveTest.unity
     guid: e59225faf2939f34cbcaeb1275f3755f
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 1d4c00c6dbf7f20479e0ec7127bda83c
   m_configObjects: {}
