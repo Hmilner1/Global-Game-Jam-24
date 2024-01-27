@@ -11,12 +11,26 @@ public class WorldController : MonoBehaviour
     public float maxXRotationAngle = 0.2f;
     public float minXRotationAngle = -0.2f;
 
+
+    private Quaternion originalRotation;
+
     public bool isEnable = false;
     public MovementFromAudio moveScript;
 
     private void Start()
     {
         moveScript = GameObject.Find("Player").GetComponent<MovementFromAudio>();
+        originalRotation = transform.rotation;
+    }
+
+    void OnEnable()
+    {
+        PlayerStats.onPlayerDied += ResetToOriginalRotation;
+    }
+
+    void OnDisable()
+    {
+        PlayerStats.onPlayerDied -= ResetToOriginalRotation;
     }
 
     void FixedUpdate()
@@ -89,6 +103,10 @@ public class WorldController : MonoBehaviour
             float rotationAngle = rotationSpeed * Time.deltaTime;
             transform.RotateAround(pivotPoint.position, rotationAxis, rotationAngle);
         }
+    }
+    public void ResetToOriginalRotation()
+    {
+        transform.rotation = originalRotation;
     }
 
 }

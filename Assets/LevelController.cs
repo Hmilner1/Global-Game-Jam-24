@@ -26,10 +26,17 @@ public class LevelController : MonoBehaviour
     void OnEnable()
     {
         LevelTrigger.onLevelTriggered += LevelEnabled;
+        PlayerStats.onPlayerDied += ResetPlayerLocation;
     }
     void OnDisable()
     {
         LevelTrigger.onLevelTriggered -= LevelEnabled;
+        PlayerStats.onPlayerDied -= ResetPlayerLocation;
+    }
+
+    void ResetPlayerLocation()
+    {
+        playerController.TeleportPlayer(Levels[CurrentLevel].StartLevelPos);
     }
 
     void LevelEnabled()
