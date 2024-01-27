@@ -8,12 +8,12 @@ public class MovementFromAudio : MonoBehaviour
 {
     [SerializeField]
     private AudioSource audioSource;
-    [SerializeField]
-    private Vector3 minScale;
-    [SerializeField] 
-    private Vector3 loudScale;
-    [SerializeField]
-    private Vector3 quiteScale;
+    //[SerializeField]
+    //private Vector3 minScale;
+    //[SerializeField] 
+    //private Vector3 loudScale;
+    //[SerializeField]
+    //private Vector3 quiteScale;
     [SerializeField]
     AudioDetection audioDetector;
 
@@ -30,6 +30,18 @@ public class MovementFromAudio : MonoBehaviour
 
     private bool running;
     private bool non;
+
+    private WorldController localController;
+
+    private void OnEnable()
+    {
+        LevelController.OnNextScene += SetWorldController;
+    }
+
+    private void OnDisable()
+    {
+        LevelController.OnNextScene -= SetWorldController;
+    }
 
     private void Start()
     {
@@ -63,18 +75,19 @@ public class MovementFromAudio : MonoBehaviour
             if (volume == 0)
             {
                 non = true;
-                transform.localScale = new Vector3(1, 1, 1);
+                //return to normal
             }
         }
     }
 
     private IEnumerator MoveForward()
     {
-        transform.localScale = Vector3.Lerp(minScale, loudScale, volume);
+        localController.LeanForward();
         yield return new WaitForSeconds(1);
         if (non)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            //return to normal
+
         }
         running = false;
         StopCoroutine(MoveForward());
@@ -82,13 +95,18 @@ public class MovementFromAudio : MonoBehaviour
 
     private IEnumerator MoveBackward()
     {
-        transform.localScale = Vector3.Lerp(minScale, quiteScale, volume);
+        localController.LeanBack();
         yield return new WaitForSeconds(1);
         if (non)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            //return to normal
         }
         running = false;
         StopCoroutine(MoveBackward());
+    }
+
+    private void SetWorldController(WorldController controller)
+    {
+        localController = controller;
     }
 }

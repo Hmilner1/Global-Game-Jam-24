@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    #region events
+    public delegate void NextScene(WorldController controller);
+    public static event NextScene OnNextScene;
+
+    #endregion
     private int CurrentLevel = 0;
 
     public PlayerController playerController;
@@ -22,7 +27,7 @@ public class LevelController : MonoBehaviour
         CurrentLevel = 0;
         playerController = GameObject.FindObjectOfType<PlayerController>();
         Levels[CurrentLevel].WorldController.isEnable = true;
-
+        OnNextScene?.Invoke(Levels[CurrentLevel].WorldController);
     }
 
     int GetCurrentLevel()
@@ -38,6 +43,7 @@ public class LevelController : MonoBehaviour
         Levels[CurrentLevel].WorldController.isEnable = false;
         CurrentLevel++;
         playerController.TeleportPlayer(Levels[CurrentLevel].StartLevelPos);
+        OnNextScene?.Invoke(Levels[CurrentLevel].WorldController);
         Levels[CurrentLevel].WorldController.isEnable = true;
     }
 
