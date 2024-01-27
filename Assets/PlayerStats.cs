@@ -11,8 +11,6 @@ public class PlayerStats : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private float Timer = 0;
-    [SerializeField]
     private int Score = 0;
     [SerializeField]
     private int Lives = 3;
@@ -54,6 +52,5 @@ public class PlayerStats : MonoBehaviour
     {
         Score += ScoreToAdd;
         ScoreText.text = Score.ToString();
-
     }
 }
