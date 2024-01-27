@@ -1075,6 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivotPoint: {fileID: 1305479888}
   rotationSpeed: 50
+  slowRotationSpeed: 10
   maxZRotationAngle: 0.2
   minZRotationAngle: -0.2
   maxXRotationAngle: 0.3
@@ -2670,7 +2671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -7.2000732, y: -13}
+  m_AnchoredPosition: {x: -7.2000732, y: 0}
   m_SizeDelta: {x: 409.8, y: 344.4}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1285603927
@@ -2957,6 +2958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivotPoint: {fileID: 1305479888}
   rotationSpeed: 50
+  slowRotationSpeed: 10
   maxZRotationAngle: 0.2
   minZRotationAngle: -0.2
   maxXRotationAngle: 0.3
@@ -3122,7 +3124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
+  m_AnchoredPosition: {x: 50, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1363419061
