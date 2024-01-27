@@ -19,7 +19,10 @@ public class LevelController : MonoBehaviour
 
     public void Start()
     {
+        CurrentLevel = 0;
         playerController = GameObject.FindObjectOfType<PlayerController>();
+        Levels[CurrentLevel].WorldController.isEnable = true;
+
     }
 
     int GetCurrentLevel()
@@ -32,10 +35,10 @@ public class LevelController : MonoBehaviour
     }
     public void NextLevel()
     {
-        Levels[CurrentLevel].WorldController.enabled = false;
+        Levels[CurrentLevel].WorldController.isEnable = false;
         CurrentLevel++;
         playerController.TeleportPlayer(Levels[CurrentLevel].StartLevelPos);
-        Levels[CurrentLevel].WorldController.enabled = true;
+        Levels[CurrentLevel].WorldController.isEnable = true;
     }
 
 
