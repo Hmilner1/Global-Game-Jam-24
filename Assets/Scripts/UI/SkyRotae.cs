@@ -5,6 +5,13 @@ using UnityEngine;
 public class SkyRotae : MonoBehaviour
 {
     public float rotationSpeed = 1.0f;
+    [SerializeField]
+    private GameObject SceneMan;
+
+    private void Start()
+    {
+        Instantiate(SceneMan);
+    }
 
     void Update()
     {  

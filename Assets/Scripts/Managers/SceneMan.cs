@@ -10,8 +10,6 @@ public class SceneMan : MonoBehaviour
 
     [SerializeField]
     private GameObject loadCanvas;
-    //[SerializeField]
-    //private UnityEngine.UI.Image progressBar;
 
     private float target;
 
@@ -32,7 +30,6 @@ public class SceneMan : MonoBehaviour
     public async void LoadScene(string sceneName)
     {
         target = 0;
-        //progressBar.fillAmount = 0;
 
         var scene = SceneManager.LoadSceneAsync(sceneName);
         scene.allowSceneActivation = false;
@@ -46,7 +43,7 @@ public class SceneMan : MonoBehaviour
         }
         while (scene.progress < 0.9f);
 
-        await Task.Delay(1000);
+        await Task.Delay(100);
 
         scene.allowSceneActivation = true;
         await Task.Delay(10);
@@ -56,7 +53,6 @@ public class SceneMan : MonoBehaviour
     public async void LoadSceneAdditive(string sceneName)
     {
         target = 0;
-       // progressBar.fillAmount = 0;
 
         var scene = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         scene.allowSceneActivation = false;
@@ -80,7 +76,6 @@ public class SceneMan : MonoBehaviour
     public async void UnLoadScene(string sceneName)
     {
         target = 0;
-       // progressBar.fillAmount = 0;
 
         var scene = SceneManager.UnloadSceneAsync(sceneName);
         scene.allowSceneActivation = false;
@@ -89,7 +84,7 @@ public class SceneMan : MonoBehaviour
 
         do
         {
-            await Task.Delay(100);
+            await Task.Delay(10);
             target = scene.progress;
         }
         while (scene.progress < 0.9f);
@@ -99,11 +94,6 @@ public class SceneMan : MonoBehaviour
         scene.allowSceneActivation = true;
         await Task.Delay(10);
         loadCanvas.SetActive(false);
-    }
-
-    private void Update()
-    {
-        //progressBar.fillAmount = Mathf.MoveTowards(progressBar.fillAmount, target, 3 * Time.deltaTime);
     }
 
 

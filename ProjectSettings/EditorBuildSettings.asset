@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeveMoveTest.unity
     guid: e59225faf2939f34cbcaeb1275f3755f
+  - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: df754b79f6a05a84fb87b3e72787d77a
   m_configObjects: {}

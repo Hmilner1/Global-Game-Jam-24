@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5491232815597776941
 MonoBehaviour:
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2491db1b5f4987e40ae9e6163e11eb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadCanvas: {fileID: 0}
+  loadCanvas: {fileID: 5920653396217672606, guid: 470534160bcdfe14fab5e0bd6f04d3f5, type: 3}
