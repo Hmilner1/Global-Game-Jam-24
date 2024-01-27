@@ -6,6 +6,7 @@ public class WorldController : MonoBehaviour
 {
     public Transform pivotPoint;
     public float rotationSpeed = 15f;
+    public float slowRotationSpeed = 10f;
     public float maxZRotationAngle = 0.2f;
     public float minZRotationAngle = -0.2f;
     public float maxXRotationAngle = 0.2f;
@@ -108,5 +109,24 @@ public class WorldController : MonoBehaviour
     {
         transform.rotation = originalRotation;
     }
+
+    public void ReturnToOriginal()
+    {
+        float currentZRotation = transform.rotation.z;
+        Debug.Log(currentZRotation);
+        if (currentZRotation > 0.01)
+        {
+            Vector3 rotationAxis = -transform.forward;
+            float rotationAngle = slowRotationSpeed * Time.deltaTime;
+            transform.RotateAround(pivotPoint.position, rotationAxis, rotationAngle);
+        }
+        if (currentZRotation < -0.01)
+        {
+            Vector3 rotationAxis = transform.forward;
+            float rotationAngle = slowRotationSpeed * Time.deltaTime;
+            transform.RotateAround(pivotPoint.position, rotationAxis, rotationAngle);
+        }
+    }
+    
 
 }

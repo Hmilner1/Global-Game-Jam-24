@@ -82,7 +82,8 @@ public class MovementFromAudio : MonoBehaviour
             if (volume == 0)
             {
                 non = true;
-                //return to normal
+                localController.ReturnToOriginal();
+                ResetBools();
             }
         }
     }
@@ -94,8 +95,8 @@ public class MovementFromAudio : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (non)
         {
-            //return to normal
-
+            
+            //Here
         }
         running = false;
         StopCoroutine(MoveForward());
@@ -108,7 +109,7 @@ public class MovementFromAudio : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (non)
         {
-            //return to normal
+            //Here
         }
         running = false;
         StopCoroutine(MoveBackward());
