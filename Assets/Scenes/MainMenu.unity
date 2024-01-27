@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11603576, g: 0.42394048, b: 0.72998464, a: 1}
+  m_IndirectSpecularColor: {r: 0.11615127, g: 0.42402893, b: 0.7300162, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5154,6 +5154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 4
   SceneMan: {fileID: 2437375411577647177, guid: ef993a28f5920cc40a31fcd4cf71ad29, type: 3}
+  MicMan: {fileID: 7722144316909862958, guid: 124646ac65852f14e9920f407788908f, type: 3}
 --- !u!1 &831301733
 GameObject:
   m_ObjectHideFlags: 0

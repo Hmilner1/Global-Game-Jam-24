@@ -7,10 +7,13 @@ public class SkyRotae : MonoBehaviour
     public float rotationSpeed = 1.0f;
     [SerializeField]
     private GameObject SceneMan;
+    [SerializeField]
+    private GameObject MicMan;
 
     private void Start()
     {
         Instantiate(SceneMan);
+        Instantiate(MicMan);
     }
 
     void Update()

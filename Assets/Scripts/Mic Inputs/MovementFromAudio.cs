@@ -54,6 +54,7 @@ public class MovementFromAudio : MonoBehaviour
         non = true;
         forwards= false;
         backwards= false;
+        volumeSensitivity = MicMan.Instance.currentVolumeSensitivity;
     }
 
     private void Update()

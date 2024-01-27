@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class UISelectMic : MonoBehaviour
 {
+    #region events
+    public delegate void ChangeMic();
+    public static event ChangeMic onChangeMic;
+    #endregion
+
     public List<string> micList = new List<string>();
     private TMP_Dropdown micDropdown;
     private void Start()
     { 
         micDropdown= GetComponent<TMP_Dropdown>();
+
+        micDropdown.onValueChanged.AddListener(SetCurrentMic);
 
         foreach (string microphone in Microphone.devices) 
         {
@@ -23,5 +30,11 @@ public class UISelectMic : MonoBehaviour
     public void DisplayMics()
     {
         micDropdown.AddOptions(micList);
+    }
+
+    public void SetCurrentMic(int index)
+    {
+        MicMan.Instance.micName = micDropdown.options[index].text;
+        onChangeMic?.Invoke();
     }
 }

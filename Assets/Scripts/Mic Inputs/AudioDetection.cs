@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UISelectMic;
 
 public class AudioDetection : MonoBehaviour
 {
@@ -9,10 +10,25 @@ public class AudioDetection : MonoBehaviour
     private AudioClip micAudioClip;
     private string selectedMic;
 
+    private void OnEnable()
+    {
+        UISelectMic.onChangeMic += ChangeMic;
+    }
+
+    private void OnDisable()
+    {
+        UISelectMic.onChangeMic -= ChangeMic;
+    }
+
     private void Start()
     {
-        selectedMic = Microphone.devices[0];
+        selectedMic = MicMan.Instance.micName;
         MicToAudio();
+    }
+
+    private void ChangeMic()
+    {
+        selectedMic = MicMan.Instance.micName;
     }
 
     public void MicToAudio()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.11603576, g: 0.42394048, b: 0.72998464, a: 1}
+  m_IndirectSpecularColor: {r: 0.11608525, g: 0.42399278, b: 0.73004675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1661,8 +1661,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785951559}
-  m_LocalRotation: {x: 0.05288646, y: 0.2228475, z: -0.14196248, w: 0.96301025}
-  m_LocalPosition: {x: -1.5863156, y: 0.7498369, z: 2.353118}
+  m_LocalRotation: {x: 0.052886505, y: 0.22284742, z: -0.14196248, w: 0.96301025}
+  m_LocalPosition: {x: -1.5863156, y: 0.74983686, z: 2.353118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2648,7 +2648,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205076833}
-  m_LocalRotation: {x: 0.18019116, y: -0.68009984, z: 0.1781374, w: 0.6879407}
+  m_LocalRotation: {x: 0.18019114, y: -0.68009984, z: 0.1781374, w: 0.6879407}
   m_LocalPosition: {x: 5, y: 18.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3918,7 +3918,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.18019116, y: -0.68009984, z: 0.1781374, w: 0.6879407}
+  m_LocalRotation: {x: 0.18019114, y: -0.68009984, z: 0.1781374, w: 0.6879407}
   m_LocalPosition: {x: 5, y: 18.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5715,6 +5715,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4987423591153941733, guid: cf69cd93d4d73674d840c6d26b47abe0, type: 3}
+      propertyPath: audioSample
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5018784899940357704, guid: cf69cd93d4d73674d840c6d26b47abe0, type: 3}
       propertyPath: ScoreText
       value: 
