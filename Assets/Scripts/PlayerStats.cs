@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public AudioClip PLayerDiedAudioClip;
 
     public float raycastDistance = 100f;
+    private bool Grounded;
 
     void OnEnable()
     {
@@ -29,25 +30,44 @@ public class PlayerStats : MonoBehaviour
     {
         Pickups.onScoreTrigger -= AddScore;
     }
+    private void Start()
+    {
+        Grounded = true;
+    }
 
     void Update()
     {
-        Ray ray = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
-
-        if (!Physics.Raycast(ray, out hit, raycastDistance))
+        if (Grounded)
         {
-            PlayerDied();
+            Ray ray = new Ray(transform.position, Vector3.down);
+            RaycastHit hit;
+
+            if (!Physics.Raycast(ray, out hit, raycastDistance))
+            {
+                PlayerDied();
+            }
+            Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
         }
-        Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
     }
 
     void PlayerDied()
     {
         Lives--;
-        //TODO: Add Logic For Death
+        Grounded= false;
+        if (Lives <= 0)
+        {
+            SceneMan.Instance.LoadScene("EndScreen ded");
+        }
+        StartCoroutine(RespawnWait());
+    }
+
+    private IEnumerator RespawnWait()
+    {
+        yield return new WaitForSeconds(1);
         onPlayerDied?.Invoke();
         AudioManager.instance.PlaySoundEffect(PLayerDiedAudioClip, transform.position);
+        Grounded = true;
+        StopCoroutine(RespawnWait());
     }
 
     void AddScore(int ScoreToAdd)
