@@ -12,7 +12,13 @@ public class WorldController : MonoBehaviour
     public float minXRotationAngle = -0.2f;
 
     public bool isEnable = false;
-    
+    public MovementFromAudio moveScript;
+
+    private void Start()
+    {
+        moveScript = GameObject.Find("Player").GetComponent<MovementFromAudio>();
+    }
+
     void FixedUpdate()
     {
         if (!isEnable)
@@ -23,11 +29,11 @@ public class WorldController : MonoBehaviour
         float currentZRotation = transform.rotation.z;
         float currentXRotation = transform.rotation.x;
 
-        if (Input.GetKey(KeyCode.W))
+        if (moveScript.forwards)
         {
             LeanForward();
         }
-        if (Input.GetKey(KeyCode.S))
+        if (moveScript.backwards)
         {
             LeanBack();
         }

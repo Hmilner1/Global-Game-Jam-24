@@ -8,12 +8,6 @@ public class MovementFromAudio : MonoBehaviour
 {
     [SerializeField]
     private AudioSource audioSource;
-    //[SerializeField]
-    //private Vector3 minScale;
-    //[SerializeField] 
-    //private Vector3 loudScale;
-    //[SerializeField]
-    //private Vector3 quiteScale;
     [SerializeField]
     AudioDetection audioDetector;
 
@@ -31,6 +25,9 @@ public class MovementFromAudio : MonoBehaviour
     private bool running;
     private bool non;
 
+    public bool forwards;
+    public bool backwards;
+
     private WorldController localController;
 
     private void OnEnable()
@@ -47,6 +44,8 @@ public class MovementFromAudio : MonoBehaviour
     {
         running = false;
         non = true;
+        forwards= false;
+        backwards= false;
     }
 
     private void Update()
@@ -81,8 +80,9 @@ public class MovementFromAudio : MonoBehaviour
     }
 
     private IEnumerator MoveForward()
-    {
-        localController.LeanForward();
+    { 
+        backwards = false;
+        forwards = true;
         yield return new WaitForSeconds(1);
         if (non)
         {
@@ -95,7 +95,8 @@ public class MovementFromAudio : MonoBehaviour
 
     private IEnumerator MoveBackward()
     {
-        localController.LeanBack();
+        forwards = false;
+        backwards = true;
         yield return new WaitForSeconds(1);
         if (non)
         {
