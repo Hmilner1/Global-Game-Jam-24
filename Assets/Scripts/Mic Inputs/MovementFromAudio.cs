@@ -33,11 +33,19 @@ public class MovementFromAudio : MonoBehaviour
     private void OnEnable()
     {
         LevelController.OnNextScene += SetWorldController;
+        PlayerStats.onPlayerDied += ResetBools;
     }
 
     private void OnDisable()
     {
         LevelController.OnNextScene -= SetWorldController;
+        PlayerStats.onPlayerDied -= ResetBools;
+    }
+
+    void ResetBools()
+    {
+        forwards = false;
+        backwards = false;
     }
 
     private void Start()
