@@ -10,12 +10,13 @@ public class PlayerStats : MonoBehaviour
     public static event PlayerHasDied onPlayerDied;
     #endregion
 
-    [SerializeField]
-    private int Score = 0;
-    [SerializeField]
-    private int Lives = 3;
+    public int Score = 0;
+
+    public int Lives = 3;
 
     public TextMeshProUGUI ScoreText;
+
+    public AudioClip PLayerDiedAudioClip;
 
     public float raycastDistance = 100f;
 
@@ -46,6 +47,7 @@ public class PlayerStats : MonoBehaviour
         Lives--;
         //TODO: Add Logic For Death
         onPlayerDied?.Invoke();
+        AudioManager.instance.PlaySoundEffect(PLayerDiedAudioClip, transform.position);
     }
 
     void AddScore(int ScoreToAdd)

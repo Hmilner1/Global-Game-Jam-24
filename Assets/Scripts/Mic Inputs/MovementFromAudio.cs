@@ -65,23 +65,25 @@ public class MovementFromAudio : MonoBehaviour
         {
             volume = 0;
         }
-
         if (!running)
         {
             if (volume > quiteThreshold && volume < loudnessThreshold)
             {
+                AudioManager.instance.PlayWalkingSound(transform.position);
                 StartCoroutine(MoveBackward());
                 non = false;
                 running = true;
             }
             else if (volume > loudnessThreshold)
             {
+                AudioManager.instance.PlayWalkingSound(transform.position);
                 StartCoroutine(MoveForward());
                 non = false;
                 running = true;
             }
             if (volume == 0)
             {
+                AudioManager.instance.StopWalkingSound();
                 non = true;
                 localController.ReturnToOriginal();
                 ResetBools();
@@ -91,6 +93,7 @@ public class MovementFromAudio : MonoBehaviour
 
     private IEnumerator MoveForward()
     { 
+        
         backwards = false;
         forwards = true;
         yield return new WaitForSeconds(1);
@@ -105,6 +108,7 @@ public class MovementFromAudio : MonoBehaviour
 
     private IEnumerator MoveBackward()
     {
+        
         forwards = false;
         backwards = true;
         yield return new WaitForSeconds(1);

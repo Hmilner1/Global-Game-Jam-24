@@ -9,6 +9,8 @@ public class Pickups : MonoBehaviour
     public static event TriggerAddScore onScoreTrigger;
     #endregion
 
+    public AudioClip PickupAudioClip;
+
     [SerializeField]
     private int Score = 1;
 
@@ -31,5 +33,6 @@ public class Pickups : MonoBehaviour
    {
        onScoreTrigger?.Invoke(Score);
        Destroy(gameObject);
+       AudioManager.instance.PlaySoundEffect(PickupAudioClip, transform.position);
     }
 }

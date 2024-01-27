@@ -113,7 +113,6 @@ public class WorldController : MonoBehaviour
     public void ReturnToOriginal()
     {
         float currentZRotation = transform.rotation.z;
-        Debug.Log(currentZRotation);
         if (currentZRotation > 0.01)
         {
             Vector3 rotationAxis = -transform.forward;
