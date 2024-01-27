@@ -9,7 +9,7 @@ public class LevelController : MonoBehaviour
     public static event NextScene OnNextScene;
     #endregion
 
-    
+    public AudioClip FinishedLevelAudioClip;
 
     private int CurrentLevel = 0;
 
@@ -65,6 +65,7 @@ public class LevelController : MonoBehaviour
         CurrentLevel++;
         playerController.TeleportPlayer(Levels[CurrentLevel].StartLevelPos);
         OnNextScene?.Invoke(Levels[CurrentLevel].WorldController);
+        AudioManager.instance.PlaySoundEffect(FinishedLevelAudioClip, transform.position);
     }
 
 

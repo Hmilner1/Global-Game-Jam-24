@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     public TextMeshProUGUI ScoreText;
 
+    public AudioClip PLayerDiedAudioClip;
+
     public float raycastDistance = 100f;
 
     void OnEnable()
@@ -46,6 +48,7 @@ public class PlayerStats : MonoBehaviour
         Lives--;
         //TODO: Add Logic For Death
         onPlayerDied?.Invoke();
+        AudioManager.instance.PlaySoundEffect(PLayerDiedAudioClip, transform.position);
     }
 
     void AddScore(int ScoreToAdd)

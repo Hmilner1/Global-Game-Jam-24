@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180e295bbbde5414a81bc53fbc6b2a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupAudioClip: {fileID: 8300000, guid: 111929a4be3d262428e1b7937edac5c8, type: 3}
   Score: 1
   rotationDuration: 2
   bobbingHeight: 0.5
@@ -147,7 +148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5068494646727259168}
-  m_LocalRotation: {x: -0, y: -0, z: -0.008726558, w: 0.999962}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008726465, w: 0.999962}
   m_LocalPosition: {x: -9.53, y: 0.67, z: -0.78}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -155,4 +156,4 @@ Transform:
   - {fileID: 1719911549592484135}
   m_Father: {fileID: 0}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
