@@ -7,8 +7,10 @@ public class LevelController : MonoBehaviour
     #region events
     public delegate void NextScene(WorldController controller);
     public static event NextScene OnNextScene;
-
     #endregion
+
+    
+
     private int CurrentLevel = 0;
 
     public PlayerController playerController;
@@ -21,12 +23,24 @@ public class LevelController : MonoBehaviour
         public Transform StartLevelPos;
         public WorldController WorldController;
     }
+    void OnEnable()
+    {
+        LevelTrigger.onLevelTriggered += LevelEnabled;
+    }
+    void OnDisable()
+    {
+        LevelTrigger.onLevelTriggered -= LevelEnabled;
+    }
+
+    void LevelEnabled()
+    {
+        Levels[CurrentLevel].WorldController.isEnable = true;
+    }
 
     public void Start()
     {
         CurrentLevel = 0;
         playerController = GameObject.FindObjectOfType<PlayerController>();
-        Levels[CurrentLevel].WorldController.isEnable = true;
         OnNextScene?.Invoke(Levels[CurrentLevel].WorldController);
     }
 
@@ -44,7 +58,6 @@ public class LevelController : MonoBehaviour
         CurrentLevel++;
         playerController.TeleportPlayer(Levels[CurrentLevel].StartLevelPos);
         OnNextScene?.Invoke(Levels[CurrentLevel].WorldController);
-        Levels[CurrentLevel].WorldController.isEnable = true;
     }
 
 

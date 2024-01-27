@@ -501,6 +501,7 @@ MonoBehaviour:
   maxXRotationAngle: 0.3
   minXRotationAngle: -0.3
   isEnable: 1
+  moveScript: {fileID: 0}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +845,7 @@ MonoBehaviour:
   maxXRotationAngle: 0.3
   minXRotationAngle: -0.3
   isEnable: 0
+  moveScript: {fileID: 0}
 --- !u!4 &1326923148
 Transform:
   m_ObjectHideFlags: 0
