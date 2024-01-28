@@ -18,6 +18,8 @@ public class Pickups : MonoBehaviour
     public float bobbingHeight = 0.5f;
     public float bobbingDuration = 1f;
 
+    public ParticleSystem particleSystem;
+
     void Start()
     {
         StartTurnAndBob();
@@ -32,7 +34,10 @@ public class Pickups : MonoBehaviour
     void OnTriggerEnter()
    {
        onScoreTrigger?.Invoke(Score);
-       Destroy(gameObject);
        AudioManager.instance.PlaySoundEffect(PickupAudioClip, transform.position);
+       particleSystem.Play();
+       GetComponent<Collider>().enabled = false;
+       GetComponent<Renderer>().enabled = false;
+
     }
 }
