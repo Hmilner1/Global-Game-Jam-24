@@ -53,7 +53,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void PlayerDied()
+    public void PlayerDied()
     {
         Lives--;
         Grounded= false;
