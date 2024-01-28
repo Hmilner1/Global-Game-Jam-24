@@ -18,6 +18,10 @@ public class TimerUI : MonoBehaviour
     [SerializeField]
     private TMP_Text gameTimer;
 
+    private PlayerStats playerStats;
+
+    private bool HasReset;
+
     private void OnEnable()
     {
         LevelTrigger.onLevelTriggered += TimerStart;
@@ -30,7 +34,7 @@ public class TimerUI : MonoBehaviour
 
     private void Start()
     {
-
+        playerStats = GameObject.FindAnyObjectByType<PlayerStats>();
         timeRemaining = totalTime;
     }
 
@@ -49,14 +53,21 @@ public class TimerUI : MonoBehaviour
     {
         if (timeRemaining > 0f)
         {
+            HasReset = true;
             timeRemaining -= Time.deltaTime;
             TimerUIUpdate();
         }
         else
         {
+            if (HasReset)
+            {
+                playerStats.PlayerDied();
+            }
+            HasReset = false;
             string timeString = "00:00";
-
             gameTimer.text = timeString;
+            
+            
             OnTimerEnd?.Invoke();
         }
     }
