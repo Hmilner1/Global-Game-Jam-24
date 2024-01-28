@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     #region events
     public delegate void PlayerHasDied();
     public static event PlayerHasDied onPlayerDied;
+
+    public delegate void FPlayerRespawn();
+    public static event FPlayerRespawn onFPlayerRespawn;
     #endregion
 
     public int Score = 0;
@@ -63,8 +66,9 @@ public class PlayerStats : MonoBehaviour
 
     private IEnumerator RespawnWait()
     {
-        yield return new WaitForSeconds(1);
         onPlayerDied?.Invoke();
+        yield return new WaitForSeconds(1);
+        onFPlayerRespawn?.Invoke();
         AudioManager.instance.PlaySoundEffect(PLayerDiedAudioClip, transform.position);
         Grounded = true;
         StopCoroutine(RespawnWait());

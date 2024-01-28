@@ -26,12 +26,12 @@ public class LevelController : MonoBehaviour
     void OnEnable()
     {
         LevelTrigger.onLevelTriggered += LevelEnabled;
-        PlayerStats.onPlayerDied += ResetPlayerLocation;
+        PlayerStats.onFPlayerRespawn += ResetPlayerLocation;
     }
     void OnDisable()
     {
         LevelTrigger.onLevelTriggered -= LevelEnabled;
-        PlayerStats.onPlayerDied -= ResetPlayerLocation;
+        PlayerStats.onFPlayerRespawn -= ResetPlayerLocation;
     }
 
     void ResetPlayerLocation()

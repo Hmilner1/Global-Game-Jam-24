@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
         Rigidbody playerRigidbody = GetComponent<Rigidbody>();
         if (playerRigidbody != null)
         {
+            playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.constraints = RigidbodyConstraints.None;
         }
         transform.position = Location.position;
         
