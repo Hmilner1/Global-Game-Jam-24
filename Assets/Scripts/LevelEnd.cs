@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class LevelEnd : MonoBehaviour
 {
     public LevelController levelController;
-
-    private bool fadeIn;
-    private bool fadeOut;
-
     private CanvasGroup fadeCanvas;
     public float fadeSpeed;
     public float fadeDuration;
     public float endWaitDuration;
+    public ParticleSystem particleSystem;
+
+    private bool fadeIn;
+    private bool fadeOut;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class LevelEnd : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-
+        particleSystem.Play();
         StartCoroutine(EndWait());
     }
 
